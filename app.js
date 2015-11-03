@@ -15,7 +15,6 @@ var chatPage = {
 
   },
   createNewChat: function(user, img, msg){
-    event.preventDefault();
     var newChat = {
       userName: user,
       img: img,
