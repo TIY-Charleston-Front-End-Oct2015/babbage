@@ -36,3 +36,14 @@ change previous posts. update on page
 _________________________________________
 
 VI. Show currently logged in
+
+
+Assignments for tonight:
+
+I- make template for displaying chats. also make js for GET from server- dustin
+
+II- Form creation, on submit send to server - Terry
+
+III  - Delete button functionality- create function that deletes from server, find logo, style footer. - Lindsay
+
+IV-  login in styling - display hidden and not - bear 
