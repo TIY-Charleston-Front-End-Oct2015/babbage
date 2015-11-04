@@ -18,8 +18,8 @@ var chatPage = {
     $('.btn').on('click', function(event){
       event.preventDefault();
       $('.nav').addClass('hidden');
-        $(".footer").fadeIn(8000);
-        $('.chat').fadeIn(4000);
+        $('.footer').toggleClass('hidden');
+        $('.chats').toggleClass('hidden');
         var $name = $('input[name="user"]').val();
         chatPage.setUser($name);
       });
@@ -78,14 +78,17 @@ var chatPage = {
 
   //once we GET chats we have to load into template here
   loadChats: function(data) {
-    var chatsTemplate = _.template($('#chatTmpl').html());
     var chatsHTML = "";
     _.each(data, function (currVal, idx, arr) {
-      chatsHTML += chatsTemplate(currVal);
-    });
-    $('.chatBox').html(chatsHTML);
-    // $('.chatBox').append(chatsHTML);
-
+      if (currVal.userName === chatPage.currentUser){
+        var chatsTemplateCurrUser = _.template($('#chatTmplCurrUser').html);
+        chatsHTML += chatsTemplateCurrUser(currVal);
+      } else {
+        var chatsTemplate = _.template($('#chatTmpl').html());
+        chatsHTML += chatsTemplate(currVal);
+  }
+});
+$('.chatBox').html(chatsHTML);
   },
 
 
