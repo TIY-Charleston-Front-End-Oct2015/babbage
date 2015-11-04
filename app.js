@@ -28,19 +28,7 @@ var chatPage = {
         chatPage.grabChatFromServer();
       });
     //Submitting form functionality
-    $('body').on('submit','#chatMessage', function(event){
-      event.preventDefault();
-      console.log("this is happening - submit chatmessage");
-      var newChat = {
-        userName: chatPage.currentUser,
-        //img: $('input[name="image"]').val(),
-        msg: $('input[name="msg"]').val(),
-      };
-      console.log("newly created chat", newChat);
-      $('input[type="text"]').val('');
-      chatPage.sendChatToServer(newChat);
-
-    });
+    $('#chatMessage').on('submit', chatPage.createNewChat);
 
 
     // $('.chats').on('click','.delete',function (event) {
