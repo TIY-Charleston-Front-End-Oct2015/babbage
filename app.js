@@ -9,6 +9,7 @@ var chatPage = {
       chatPage.initEvents();
     },
   initStyling: function(){
+    chatPage.grabChatFromServer();
 
   },
   initEvents: function(){
@@ -32,6 +33,7 @@ var chatPage = {
           });
 
   },
+
   createNewChat: function(){
     event.preventDefault();
     var newChat = {
@@ -58,6 +60,34 @@ var chatPage = {
     });
 
   },
+
+  grabChatFromServer: function() {
+    $.ajax({
+      type: 'GET',
+      url: chatPage.url,
+      success: function(data) {
+        console.log("SUCCESS: ", data);
+        chatPage.loadChats(data);
+      },
+      failure: function(data) {
+        console.log("FAILURE: ", data);
+      }
+    });
+  },
+
+  //once we GET chats we have to load into template here
+  loadChats: function(data) {
+    var chatsTemplate = _.template($('#chatTmpl').html());
+    var chatsHTML = "";
+    _.each(data, function (currVal, idx, arr) {
+      chatsHTML += chatsTemplate(currVal);
+    });
+    $('.chatBox').html(chatsHTML);
+    // $('.chatBox').append(chatsHTML);
+
+  },
+
+
   url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
 
   deleteChat: function(chatID) {
