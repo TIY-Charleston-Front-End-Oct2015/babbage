@@ -57,9 +57,14 @@ header{
   position: fixed;
   text-align: center;
   width: 100%;
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   z-index: 3;
   background-color: white;
+  margin-left: 0;
+  padding-left: 0;
+}
+.row{
+  margin: 0;
 }
 .midSection{
   padding-top:20px;
@@ -69,6 +74,8 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: orange;
+  // border: 2px solid black;
+
   /* Set the fixed height of the footer here */
   height: 100px;
   margin: 0;
@@ -93,3 +100,6 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+// .logoHeader img{
+//   width: 50px;
+// }
