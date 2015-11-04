@@ -20,16 +20,28 @@ var chatPage = {
       event.preventDefault();
       //$('.nav').addClass('hidden');
       $('section').toggleClass('hidden');
-      //  $('.signIn').addClass('hidden');
-        // $('.chats').toggleClass('hidden');
-      //  $('.mainPage').removeClass('hidden');
+        $('.signIn').addClass('hidden');
+        $('.chats').toggleClass('hidden');
+        $('.mainPage').removeClass('hidden');
         var $name = $('input[name="user"]').val();
         chatPage.setUser($name);
         $('#loggedInAs').html(chatPage.currentUser);
         chatPage.grabChatFromServer();
       });
     //Submitting form functionality
-    $('#chatMessage').on('submit', chatPage.createNewChat);
+    $('body').on('submit','#chatMessage', function(event){
+      event.preventDefault();
+      console.log("this is happening - submit chatmessage");
+      var newChat = {
+        userName: chatPage.currentUser,
+        //img: $('input[name="image"]').val(),
+        msg: $('input[name="msg"]').val(),
+      };
+      console.log("newly created chat", newChat);
+      $('input[type="text"]').val('');
+      chatPage.sendChatToServer(newChat);
+
+    });
 
 
     // $('.chats').on('click','.delete',function (event) {
