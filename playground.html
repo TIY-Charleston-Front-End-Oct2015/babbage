@@ -8,15 +8,15 @@
 
     <script type="text/html" id="chatTmpl">
       <article class="mainChat" data-index="<%= _id %>">
-        <div class="showChat">
+        <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px;">
           <h4><%= userName %></h4>
           <p><%= msg %></p>
         </div>
       </article>
     </script>
     <script type="text/html" id="chatTmplCurrUser">
-      <article class="mainChat" data-index="<%= _id %>">
-        <div class="showChat">
+      <article class="mainChat" data-index="<%= _id %>" style="margin: 0;">
+        <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px; background-color: #f5f5f5;">
           <h4><%= userName %></h4>
           <p><%= msg %></p>
           <button type="button" class="btn-group btn-group-xs delete">Delete Chat</button>
@@ -30,7 +30,7 @@
   <body>
 
       <section class="signIn">
-      <div class="col-md-12 noPadding">
+      <div class="col-md-12 noPadding initial-Sign-In container-fluid">
         <form class="form-signin">
           <h2 class="form-signin-heading">Please sign in to chat<i class="icon-large icon-trash"></i></h2>
           <label for="user" class="sr-only">User Name</label>
