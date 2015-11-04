@@ -38,7 +38,7 @@ var chatPage = {
   createNewChat: function(){
     event.preventDefault();
     var newChat = {
-      userName: $('input[name="userName"]').val(),
+      userName: chatPage.currentUser,
       img: $('input[name="image"]').val(),
       msg: $('input[name="msg"]').val(),
     };
