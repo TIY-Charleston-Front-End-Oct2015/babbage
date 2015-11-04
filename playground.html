@@ -6,25 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
-    <style>
-    footer{
-      text-align: center;
-    }
-    input{
-      width: 100%;
-    }
-    .col-md-2{
-      background-color: gray;
-    }
-    .noPadding{
-      padding: 0;
-    }
-    .logo img{
-      width: 100px;
-    }
-    </style>
-
-
     <script type="text/html" id="chatTmpl">
       <article class="mainChat" data-index="<%= _id %>">
         <div class="showChat">
@@ -62,14 +43,16 @@
 
     <section class="mainPage hidden">
       <div class="container-fluid">
-        <div class="row ">
+      <header>
+        <div class="row">
           <div class="col-md-2 noPadding">Logo</div>
-          <div class="col-md-8 noPadding"></div>
+          <div class="col-md-8 noPadding">Our Very First Chat App</div>
           <div class="col-md-2 noPadding">Logged in as: <span id="loggedInAs"></span></div>
         </div>
+      </header>
 
 
-      <div class="row">
+      <div class="row midSection">
         <div class="col-md-2 noPadding"></div>
         <div class="col-md-8 noPadding chatBox"></div>
         <div class="col-md-2 noPadding"></div>
@@ -86,7 +69,7 @@
       </div>
       <div class="row">
           <div class="col-md-4">© 2015 Ironyard ChatApp project</div>
-          <div class="col-md-4 logo"><img src="chat.jpeg" alt=""></div>
+          <div class="col-md-4 logo"><img src="  http://www.bumpshake.com/wp-content/uploads/2014/04/panel3_web_smaller.jpg" alt=""></div>
           <div class="col-md-2 about">About</div>
           <div class="col-md-2 contact">Contact</div>
       </div>
