@@ -22,6 +22,7 @@ var chatPage = {
         $('.chats').toggleClass('hidden');
         var $name = $('input[name="user"]').val();
         chatPage.setUser($name);
+        chatPage.grabChatFromServer();
       });
     //Submitting form functionality
     $('#chatMessage').on('submit', chatPage.createNewChat);
@@ -81,11 +82,12 @@ var chatPage = {
     var chatsHTML = "";
     _.each(data, function (currVal, idx, arr) {
       if (currVal.userName === chatPage.currentUser){
-        var chatsTemplateCurrUser = _.template($('#chatTmplCurrUser').html);
+        var chatsTemplateCurrUser = _.template($('#chatTmplCurrUser').html());
         chatsHTML += chatsTemplateCurrUser(currVal);
       } else {
         var chatsTemplate = _.template($('#chatTmpl').html());
         chatsHTML += chatsTemplate(currVal);
+
   }
 });
 $('.chatBox').html(chatsHTML);
