@@ -89,7 +89,7 @@ var chatPage = {
 
 
   url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
-
+  currentUser: "",
   deleteChat: function(chatID) {
     $.ajax({
       method: 'DELETE',
