@@ -44,9 +44,14 @@ header {
   position: fixed;
   text-align: center;
   width: 100%;
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   z-index: 3;
-  background-color: white; }
+  background-color: white;
+  margin-left: 0;
+  padding-left: 0; }
+
+.row {
+  margin: 0; }
 
 .midSection {
   padding-top: 20px; }
@@ -63,10 +68,12 @@ footer {
   footer .talk {
     background-color: white; }
   footer .col-md-4 {
-    margin-left: 25px; }
+    margin-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 5px; }
   footer img {
     margin-left: 120px;
-    width: 100px;
+    width: 80px;
     background-color: transparent; }
 
 .container-fluid {
