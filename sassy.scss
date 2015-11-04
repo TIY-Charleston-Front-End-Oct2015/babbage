@@ -86,7 +86,11 @@ footer {
   }
 
 }
-.hidden {
+
+.edit-form{
+  display: inline-block;
+}
+.hidden, .invisible {
   display: none;
 }
 body {
