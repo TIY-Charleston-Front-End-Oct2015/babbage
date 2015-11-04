@@ -15,33 +15,51 @@ var chatPage = {
   initEvents: function(){
 
     //THECLICKHIDDENFUNCTION
-    $('.btn').on('click', function(event){
+    $('#initialButton').on('click', function(event){
+      console.log("this is happening - initialbutton");
       event.preventDefault();
-      $('.nav').addClass('hidden');
-        $('.footer').toggleClass('hidden');
-        $('.chats').toggleClass('hidden');
+      //$('.nav').addClass('hidden');
+      $('section').toggleClass('hidden');
+      //  $('.signIn').addClass('hidden');
+        // $('.chats').toggleClass('hidden');
+      //  $('.mainPage').removeClass('hidden');
         var $name = $('input[name="user"]').val();
         chatPage.setUser($name);
         chatPage.grabChatFromServer();
       });
     //Submitting form functionality
-    $('#chatMessage').on('submit', chatPage.createNewChat);
+    $('body').on('submit','#chatMessage', function(event){
+      event.preventDefault();
+      console.log("this is happening - submit chatmessage");
+      var newChat = {
+        userName: chatPage.currentUser,
+        //img: $('input[name="image"]').val(),
+        msg: $('input[name="msg"]').val(),
+      };
+      console.log("newly created chat", newChat);
+      $('input[type="text"]').val('');
+      chatPage.sendChatToServer(newChat);
+
+    });
 
 
-    $('.chats').on('click','.delete',function (event) {
+    // $('.chats').on('click','.delete',function (event) {
+    $('.chatBox').on('click','.delete',function (event) {
+      console.log("this is happening - delete chat message");
             var $deleteBtn = $(this);
             var chatID = $deleteBtn.closest('article').data('index');
             chatPage.deleteChat(chatID,$deleteBtn);
-          });
+    });
+
 
   },
 
-  createNewChat: function(){
+  createNewChat: function(event){
     event.preventDefault();
     var newChat = {
       userName: chatPage.currentUser,
-      img: $('input[name="image"]').val(),
-      msg: $('input[name="msg"]').val(),
+      //img: $('input[name="image"]').val(),
+      msg: $('input[name="msg"]').val()
     };
     $('input[type="text"]').val('');
     chatPage.sendChatToServer(newChat);
