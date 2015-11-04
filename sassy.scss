@@ -16,22 +16,32 @@ h2 {
 .col-md-6{
   background-color: green;
 }
-.chat{
-  background-color: yellow;
-}
 .chatBox{
   width: 60%;
+  border-bottom: 2px solid black;
+  // height: 150px;
 }
 .showChat{
-  height: 200px;
-  margin: 0;
+  margin-left: 200px;
+  height:150px;
+}
+.image{
+  height: 150px;
+  width: 180px;
+  float: left;
+  img{
+    width: 100%;
+  }
 }
 .chatEntry{
   width: 40%;
   background-color: blue;
 }
-.newChat{
-  height: 200px;
+.btn-group-xs{
+    float: right;
+}
+.chats{
+  // height: 200px;
 }
 .footer{
   background-color: grey;

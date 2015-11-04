@@ -7,25 +7,49 @@
     <title>Chat App</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script type="text/html" id="chatTmpl">
+      <article class="mainChat" data-index="<%= _id %>">
+        <div class="image">
+          <!-- or should this be image? -->
+            <img src="<%= img %>">
+        </div>
+        <div class="showChat">
+          <h4><%= userName %></h4>
+          <p><%= msg %></p>
+          <button type="button" class="btn-group btn-group-xs delete">Delete Chat</button>
+        </div>
+
+      </article>
+    </script>
   </head>
   <body>
     <div class="col-md-8 nav">
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in to chat</h2>
-        
+
         <label for="user" class="sr-only">User Name</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="User Name" required="" autofocus="">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
       <<h3>login</h3>
     </div>
-    <div class="chat hidden">
+
+    <div class="chats">
+      <!-- This is where we will be swapping chats into the template -->
         <section class="col-md-6 chatBox">
-          <div class="showChat">
-            <p>Chat Entries appear here</p>
-          </div>
-          <!-- <button type="button" class="btn btn-primary">CLICK HERE</button> -->
         </section>
+
+        <section class="col-md-6 chatBox">
+          <div class="image">
+              <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTVQncms0ZNf6K-dngSDaeQ8kx-5c0lziP2tSM_gAt1YT1l47YYpQ">
+          </div>
+          <div class="showChat">
+            <h4>User Name Here</h4>
+            <p>Chat dialog appears here and what if the dialog is really long and we cannot fit all of the words in the box and then this is just a really long sentence.</p>
+            <button type="button" class="btn-group btn-group-xs delete">Delete Chat</button>
+          </div>
+        </section>
+
         <aside class="col-md-6 chatEntry">
           <div class="newChat">
             <h3>Chat it up!</h3>
@@ -42,7 +66,7 @@
         </aside>
     </div>
 
-    <div class="col-md-4 footer hidden">
+    <div class="col-md-4 footer">
       <h3>footer</h3>
     </div>
 
