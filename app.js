@@ -12,6 +12,9 @@ var chatPage = {
 
   },
   initEvents: function(){
+    //Submitting form functionality
+    $('#chatMessage').on('submit', chatPage.createNewChat);
+
 
     $('.chats').on('click','.delete',function (event) {
             var $deleteBtn = $(this);
@@ -20,12 +23,14 @@ var chatPage = {
           });
 
   },
-  createNewChat: function(user, img, msg){
+  createNewChat: function(){
+    event.preventDefault();
     var newChat = {
-      userName: user,
-      img: img,
-      msg: msg
+      userName: $('input[name="userName"]').val(),
+      img: $('input[name="image"]').val(),
+      msg: $('input[name="msg"]').val(),
     };
+    $('input[type="text"]').val('');
     chatPage.sendChatToServer(newChat);
 
   },
