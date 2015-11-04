@@ -20,8 +20,9 @@ var chatPage = {
       $('.nav').addClass('hidden');
         $(".footer").fadeIn(8000);
         $('.chat').fadeIn(4000);
-    });
-
+        var $name = $('input[name="user"]').val();
+        chatPage.setUser($name);
+      });
     //Submitting form functionality
     $('#chatMessage').on('submit', chatPage.createNewChat);
 
@@ -102,5 +103,8 @@ var chatPage = {
         console.log("ERROR", data);
       }
     });
-  }
+  },
+  setUser: function(name){
+    chatPage.currentUser = name;
+  },
 };
