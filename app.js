@@ -41,3 +41,13 @@ var chatPage = {
   url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
 
 };
+
+//THECLICKHIDDENFUNCTION
+$('.btn').on('click', function(event){
+  event.preventDefault();
+  $('.nav').addClass('hidden');
+    $(".footer").fadeIn(8000);
+    $('.chat').fadeIn(4000);
+
+
+});
