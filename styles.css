@@ -55,19 +55,23 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: orange;
+  background-color: #F7A22B;
   /* Set the fixed height of the footer here */
   height: 100px;
   margin: 0;
   padding: 0; }
+  footer .talk {
+    background-color: white; }
+  footer .col-md-4 {
+    margin-left: 25px; }
   footer img {
+    margin-left: 120px;
     width: 100px;
     background-color: transparent; }
-  footer col-md-2 {
-    color: white;
-    text-decoration: none; }
-    footer col-md-2:hover {
-      background-color: #f5f5f5; }
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0; }
 
 .edit-form {
   display: inline-block; }
