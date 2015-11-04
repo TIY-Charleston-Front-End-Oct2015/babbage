@@ -30,8 +30,31 @@
   height: 200px; }
 
 .footer {
+<<<<<<< HEAD
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px; }
+  .footer ul {
+    margin: 0;
+    padding: 0; }
+  .footer li {
+    display: inline-block;
+    padding: 5px 25px 5px 25px; }
+    .footer li:nth-child(4) {
+      font-size: 18px; }
+    .footer li img {
+      width: 100px; }
+    .footer li a {
+      color: white;
+      text-decoration: none; }
+    .footer li:hover {
+      background-color: #f5f5f5; }
+=======
   background-color: grey;
   width: 100%; }
 
 .hidden {
   display: none; }
+>>>>>>> 57e79951def87217f04dc2c1d2c447a3559eb5d2
