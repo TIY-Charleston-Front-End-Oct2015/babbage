@@ -25,6 +25,7 @@ var chatPage = {
       //  $('.mainPage').removeClass('hidden');
         var $name = $('input[name="user"]').val();
         chatPage.setUser($name);
+        $('#loggedInAs').html(chatPage.currentUser);
         chatPage.grabChatFromServer();
       });
     //Submitting form functionality
@@ -39,7 +40,18 @@ var chatPage = {
             chatPage.deleteChat(chatID,$deleteBtn);
     });
 
-
+    $('header').on('dblclick','#loggedInAs', function(){
+      $(this).toggleClass('invisible');
+      $(this).siblings('form').toggleClass('invisible');
+      $('input[name="edittodo"]').val(chatPage.currentUser);
+    });
+    $('header').on('submit', '.edit-form', function(event){
+      event.preventDefault();
+      chatPage.currentUser = $('input[name="edittodo"]').val();
+      $(this).toggleClass('invisible');
+      $(this).siblings('span').toggleClass('invisible');
+      $('#loggedInAs').html(chatPage.currentUser);
+    });
   },
 
   createNewChat: function(event){
