@@ -13,6 +13,12 @@ var chatPage = {
   },
   initEvents: function(){
 
+    $('.chats').on('click','.delete',function (event) {
+            var $deleteBtn = $(this);
+            var chatID = $deleteBtn.closest('article').data('index');
+            chatPage.deleteChat(chatID,$deleteBtn);
+          });
+
   },
   createNewChat: function(user, img, msg){
     var newChat = {
@@ -40,4 +46,17 @@ var chatPage = {
   },
   url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
 
+  deleteChat: function(chatID) {
+    $.ajax({
+      method: 'DELETE',
+      url: chatPage.url + chatID,
+      success: function(data) {
+        console.log("DELETED", data);
+        $(this).closest('article').remove();
+      },
+      failure: function(data) {
+        console.log("ERROR", data);
+      }
+    });
+  }
 };
