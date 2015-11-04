@@ -12,6 +12,15 @@ var chatPage = {
 
   },
   initEvents: function(){
+
+    //THECLICKHIDDENFUNCTION
+    $('.btn').on('click', function(event){
+      event.preventDefault();
+      $('.nav').addClass('hidden');
+        $(".footer").fadeIn(8000);
+        $('.chat').fadeIn(4000);
+    });
+
     //Submitting form functionality
     $('#chatMessage').on('submit', chatPage.createNewChat);
 
