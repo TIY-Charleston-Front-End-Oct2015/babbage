@@ -9,6 +9,7 @@ var chatPage = {
       chatPage.initEvents();
     },
   initStyling: function(){
+    chatPage.grabChatFromServer();
 
   },
   initEvents: function(){
@@ -19,8 +20,9 @@ var chatPage = {
       $('.nav').addClass('hidden');
         $(".footer").fadeIn(8000);
         $('.chat').fadeIn(4000);
-    });
-
+        var $name = $('input[name="user"]').val();
+        chatPage.setUser($name);
+      });
     //Submitting form functionality
     $('#chatMessage').on('submit', chatPage.createNewChat);
 
@@ -32,10 +34,11 @@ var chatPage = {
           });
 
   },
+
   createNewChat: function(){
     event.preventDefault();
     var newChat = {
-      userName: $('input[name="userName"]').val(),
+      userName: chatPage.currentUser,
       img: $('input[name="image"]').val(),
       msg: $('input[name="msg"]').val(),
     };
@@ -58,8 +61,36 @@ var chatPage = {
     });
 
   },
-  url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
 
+  grabChatFromServer: function() {
+    $.ajax({
+      type: 'GET',
+      url: chatPage.url,
+      success: function(data) {
+        console.log("SUCCESS: ", data);
+        chatPage.loadChats(data);
+      },
+      failure: function(data) {
+        console.log("FAILURE: ", data);
+      }
+    });
+  },
+
+  //once we GET chats we have to load into template here
+  loadChats: function(data) {
+    var chatsTemplate = _.template($('#chatTmpl').html());
+    var chatsHTML = "";
+    _.each(data, function (currVal, idx, arr) {
+      chatsHTML += chatsTemplate(currVal);
+    });
+    $('.chatBox').html(chatsHTML);
+    // $('.chatBox').append(chatsHTML);
+
+  },
+
+
+  url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
+  currentUser: "",
   deleteChat: function(chatID) {
     $.ajax({
       method: 'DELETE',
@@ -72,5 +103,8 @@ var chatPage = {
         console.log("ERROR", data);
       }
     });
-  }
+  },
+  setUser: function(name){
+    chatPage.currentUser = name;
+  },
 };
