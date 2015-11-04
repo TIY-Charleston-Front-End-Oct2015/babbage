@@ -55,6 +55,7 @@ var chatPage = {
       data: msg,
       success: function(response){
         console.log("success", response);
+        chatPage.grabChatFromServer();
       },
       failure: function(response){
         console.log("failure", response);
@@ -80,7 +81,7 @@ var chatPage = {
   //once we GET chats we have to load into template here
   loadChats: function(data) {
     var chatsHTML = "";
-    _.each(data, function (currVal, idx, arr) {
+    _.each(data.reverse(), function (currVal, idx, arr) {
       if (currVal.userName === chatPage.currentUser){
         var chatsTemplateCurrUser = _.template($('#chatTmplCurrUser').html());
         chatsHTML += chatsTemplateCurrUser(currVal);
@@ -96,13 +97,13 @@ $('.chatBox').html(chatsHTML);
 
   url: "https://tiny-tiny.herokuapp.com/collections/perlman/",
   currentUser: "",
-  deleteChat: function(chatID) {
+  deleteChat: function(chatID, $button) {
     $.ajax({
       method: 'DELETE',
       url: chatPage.url + chatID,
       success: function(data) {
         console.log("DELETED", data);
-        $(this).closest('article').remove();
+        $($button).closest('article').remove();
       },
       failure: function(data) {
         console.log("ERROR", data);
