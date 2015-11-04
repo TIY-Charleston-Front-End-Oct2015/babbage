@@ -4,8 +4,37 @@
     <meta charset="utf-8">
     <title>TryOut formatting</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <style>
+    footer{
+      text-align: center;
+
+    }
+    input{
+      width: 100%;
+    }
+    .col-md-2{
+      background-color: gray;
+    }
+    .noPadding{
+      padding: 0;
+    }
+    </style>
   </head>
   <body>
-    
+    <footer>
+      <div class="row">
+        <form id="chatMessage">
+          <div class="col-md-2 noPadding">+</div>
+          <div class="col-md-8 noPadding"><input type="text" name="msg" placeholder="Your Chat"></input></div>
+          <div class="col-md-2 noPadding"><input type="submit" name="submit" value="submit"></input></div>
+        </form>
+      </div>
+      <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">Copyright</div>
+          <div class="col-md-4"></div>
+      </div>
+    </footer>
+
   </body>
 </html>
