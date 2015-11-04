@@ -91,7 +91,11 @@ footer {
     padding-right: 0;
     padding-left: 0;
 }
-.hidden {
+
+.edit-form{
+  display: inline-block;
+}
+.hidden, .invisible {
   display: none;
 }
 body {
