@@ -44,7 +44,8 @@
     .footer li:nth-child(4) {
       font-size: 18px; }
     .footer li img {
-      width: 100px; }
+      width: 100px;
+      background-color: transparent; }
     .footer li a {
       color: white;
       text-decoration: none; }
