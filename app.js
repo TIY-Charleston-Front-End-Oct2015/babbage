@@ -47,10 +47,26 @@ var chatPage = {
     });
     $('header').on('submit', '.edit-form', function(event){
       event.preventDefault();
+      var oldName = chatPage.currentUser;
+      console.log(oldName);
       chatPage.currentUser = $('input[name="edittodo"]').val();
       $(this).toggleClass('invisible');
       $(this).siblings('span').toggleClass('invisible');
       $('#loggedInAs').html(chatPage.currentUser);
+      var newName = chatPage.currentUser;
+      console.log(newName);
+      $.ajax({
+        type: 'GET',
+        url: chatPage.url,
+        success: function(data) {
+          chatPage.currentServerData = data;
+          chatPage.editUserEverywhere(oldName,newName);
+        },
+        failure: function(data) {
+          console.log("FAILURE: ", data);
+        }
+      });
+
     });
   },
 
@@ -131,4 +147,29 @@ $('.chatBox').html(chatsHTML);
   setUser: function(name){
     chatPage.currentUser = name;
   },
+  editUserEverywhere: function(oldName, newName){
+    _.each(chatPage.currentServerData, function(currVal, idx, arr){
+        if(currVal.userName === oldName){
+          var editedChat = {
+            _id: currVal._id,
+            userName: newName,
+            msg: currVal.msg
+          };
+          $.ajax({
+            type: 'PUT',
+            url: chatPage.url + currVal._id,
+            data: editedChat,
+            success: function(resp){
+              console.log("Success");
+            },
+            failure: function(resp){
+              console.log("Failure");
+            }
+          });
+        }
+
+    });
+    setTimeout(chatPage.grabChatFromServer, 2000);
+ },
+ currentServerData : [],
 };
