@@ -159,6 +159,7 @@ $('.chatBox').html(chatsHTML);
             type: 'PUT',
             url: chatPage.url + currVal._id,
             data: editedChat,
+            async: false,
             success: function(resp){
               console.log("Success");
             },
@@ -169,7 +170,7 @@ $('.chatBox').html(chatsHTML);
         }
 
     });
-    setTimeout(chatPage.grabChatFromServer, 2000);
+    chatPage.grabChatFromServer();
  },
  currentServerData : [],
 };
