@@ -80,7 +80,7 @@ var chatPage = {
       message = "Sup, Bro?!";
     }
     else{
-      message = $('input[name="msg"]').val();
+      message = $('input[name="msg"]').val() + ", Bro!";
     }
     var newChat = {
       userName: chatPage.currentUser,
