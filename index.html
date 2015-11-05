@@ -2,101 +2,94 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chat App</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <title>TryOut formatting</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite|Oswald:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles.css">
-      <script type="text/html" id="chatTmpl">
-        <article class="mainChat" data-index="<%= _id %>">
-          <div class="image">
-            <img src="<%= img %>">
-          </div>
-          <div class="showChat">
-            <h4><%= userName %></h4>
-            <p><%= msg %></p>
-          </div>
-        </article>
-      </script>
-      <script type="text/html" id="chatTmplCurrUser">
-        <article class="mainChat" data-index="<%= _id %>">
-          <div class="image">
-            <img src="<%= img %>">
-          </div>
-          <div class="showChat">
-            <h4><%= userName %></h4>
-            <p><%= msg %></p>
-            <button type="button" class="btn-group btn-group-xs delete">Delete Chat</button>
-          </div>
-        </article>
-      </script>
+
+    <script type="text/html" id="chatTmpl">
+      <article class="mainChat" data-index="<%= _id %>">
+        <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px;">
+          <h4 style="font-weight: bold;"><%= userName %></h4>
+          <p style="font-family: 'Oswald', sans-serif; font-size: 16px;"><%= msg %></p>
+        </div>
+      </article>
+    </script>
+    <script type="text/html" id="chatTmplCurrUser">
+      <article class="mainChat" data-index="<%= _id %>" style="margin: 0;">
+        <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px; background-color: #f5f5f5; padding-right: 10px;">
+          <h4 style="font-weight: bold;"><%= userName %></h4>
+          <p style="font-family: 'Oswald', sans-serif; font-size: 16px;"><%= msg %></p>
+          <button type="button" style="padding-top: 5px; border: 2px solid #2B80F7; background-color: #f8f8f8; border-radius: 3px; font-family: 'Special Elite', cursive;" class="btn-group btn-group-xs delete">Delete&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-trash"></span></button>
+        </div>
+      </article>
+    </script>
 
 
 
   </head>
   <body>
-    <div class="col-md-8 nav">
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in to chat</h2>
 
-        <label for="user" class="sr-only">User Name</label>
-        <input type="email" name="user" class="form-control" placeholder="User Name" required="" autofocus="">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <section class="signIn">
+      <div class="col-md-12 noPadding initial-Sign-In container-fluid">
+        <form class="form-signin">
+          <h2 class="form-signin-heading">Please sign in to chat<i class="icon-large icon-trash"></i></h2>
+          <label for="user" class="sr-only">User Name</label>
+          <input type="text" name="user" class="form-control" placeholder="User Name" required="" autofocus="">
+          <button class="btn btn-lg btn-primary btn-block" type="submit" id="initialButton">Sign in</button>
+        </form>
+      </div>
+    </section>
+
+
+    <section class="mainPage hidden">
+      <div class="container-fluid">
+      <header>
+        <div class="row" style="background-color: #F7A22B;">
+          <div class="col-md-2 noPadding logoHeader"><img src="http://www.bumpshake.com/wp-content/uploads/2014/04/panel3_web_smaller.jpg" style="width: 100px;"></div>
+          <div class="col-md-8 noPadding"><h1 style="font-family: 'Special Elite', cursive;">ChatBros.</h1></div>
+          <div class="col-md-2 noPadding">Logged in as: <span id="loggedInAs"></span><form class="edit-form invisible"><input class="edit" type="text" name="edittodo" value=""></input></form></div>
+        </div>
+      </header>
+
+
+      <div class="row midSection">
+        <div class="col-md-2 noPadding"></div>
+        <div class="col-md-8 noPadding chatBox"></div>
+        <div class="col-md-2 noPadding"></div>
+      </div>
+
+
+    <footer>
+      <div class="row talk">
+        <form id="chatMessage" action="">
+        <div class="col-md-4 noPadding"></div>
+        <div class="col-md-3 noPadding">
+            <input type="text" name="msg" placeholder="Your Chat">
+        </div>
+        <div class="col-md-1 noPadding"><input type="submit" value="submit"></div>
+        <div class="col-md-4 noPadding"></div>
       </form>
-      <!-- <h3>login</h3> -->
+
+        <!-- <form id="chatMessage" action="">
+          <input type="text" name="msg" placeholder="Your Chat">
+          <input type="submit" value="submit">
+        </form> -->
+      </div>
+      <div class="row" style="border-top: 2px solid black;">
+          <div class="col-md-4">© 2015 Ironyard ChatApp project</div>
+          <div class="col-md-4 logo"><img src="http://www.bumpshake.com/wp-content/uploads/2014/04/panel3_web_smaller.jpg" alt=""></div>
+          <div class="col-md-3 about">Making the World a Better Place</div>
+          <div class="col-md-1 contact"></div>
+      </div>
+    </footer>
     </div>
+  </section>
 
-    <div class="chats hidden">
-      <!-- This is where we will be swapping chats into the template -->
-        <section class="col-md-6 chatBox">
-        </section>
+  <script src="bower_components/underscore/underscore.js" type="text/javascript"></script>
+  <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
 
-        <!-- <section class="col-md-6 chatBox">
-          <div class="image">
-              <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTVQncms0ZNf6K-dngSDaeQ8kx-5c0lziP2tSM_gAt1YT1l47YYpQ">
-          </div>
-          <div class="showChat">
-            <h4>User Name Here</h4>
-            <p>Chat dialog appears here and what if the dialog is really long and we cannot fit all of the words in the box and then this is just a really long sentence.</p>
-          </div>
-        </section> -->
-
-        <aside class="col-md-6 chatEntry">
-          <div class="newChat">
-            <h3>Chat it up!</h3>
-
-            <form id="chatMessage">
-              <input type="text" name="image" placeholder="Image"></input>
-              <input type="text" name="msg" placeholder="Your Chat"></input>
-              <input type="submit" name="submit" value="submit"></input>
-            </form>
-
-
-          </div>
-        </aside>
-    </div>
-
-
-
-    <div class="col-md-4 footer hidden">
-        <li><img src="chat.jpeg" alt=""></li>
-        <li><a href=""></a>about</li>
-        <li><a href=""></a>contact</li>
-        <li>
-				© 2015 Ironyard ChatApp project
-				</li>
-
-      </ul>
-    </div>
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/underscore/underscore.js" type="text/javascript"></script>
-    <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
-    </script>
-    <script src="app.js"></script>
   </body>
 </html>
