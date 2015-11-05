@@ -72,10 +72,20 @@ var chatPage = {
 
   createNewChat: function(event){
     event.preventDefault();
+    var message = "";
+    if ($('input[name="msg"]').val() === ""){
+      message = "Bro!";
+    }
+    else if($('input[name="msg"]').val() === "sb"){
+      message = "Sup, Bro?!";
+    }
+    else{
+      message = $('input[name="msg"]').val();
+    }
     var newChat = {
       userName: chatPage.currentUser,
       //img: $('input[name="image"]').val(),
-      msg: $('input[name="msg"]').val()
+      msg: message
     };
     $('input[type="text"]').val('');
     chatPage.sendChatToServer(newChat);
