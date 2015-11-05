@@ -4,22 +4,23 @@
     <meta charset="utf-8">
     <title>TryOut formatting</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite|Oswald:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles.css">
 
     <script type="text/html" id="chatTmpl">
       <article class="mainChat" data-index="<%= _id %>">
         <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px;">
-          <h4><%= userName %></h4>
-          <p><%= msg %></p>
+          <h4 style="font-weight: bold;"><%= userName %></h4>
+          <p style="font-family: 'Oswald', sans-serif; font-size: 16px;"><%= msg %></p>
         </div>
       </article>
     </script>
     <script type="text/html" id="chatTmplCurrUser">
       <article class="mainChat" data-index="<%= _id %>" style="margin: 0;">
-        <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px; background-color: #f5f5f5;">
-          <h4><%= userName %></h4>
-          <p><%= msg %></p>
-          <button type="button" class="btn-group btn-group-xs delete">Delete Chat</button>
+        <div class="showChat" style="border-top: 1px solid gray; padding-left: 5px; padding-top: 5px; background-color: #f5f5f5; padding-right: 10px;">
+          <h4 style="font-weight: bold;"><%= userName %></h4>
+          <p style="font-family: 'Oswald', sans-serif; font-size: 16px;"><%= msg %></p>
+          <button type="button" style="padding-top: 5px; border: 2px solid #2B80F7; background-color: #f8f8f8; border-radius: 3px; font-family: 'Special Elite', cursive;" class="btn-group btn-group-xs delete">Delete&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-trash"></span></button>
         </div>
       </article>
     </script>
@@ -46,7 +47,7 @@
       <header>
         <div class="row" style="background-color: #F7A22B;">
           <div class="col-md-2 noPadding logoHeader"><img src="http://www.bumpshake.com/wp-content/uploads/2014/04/panel3_web_smaller.jpg" style="width: 100px;"></div>
-          <div class="col-md-8 noPadding"><h2 style="">ChatBros</h2></div>
+          <div class="col-md-8 noPadding"><h1 style="font-family: 'Special Elite', cursive;">ChatBros.</h1></div>
           <div class="col-md-2 noPadding">Logged in as: <span id="loggedInAs"></span><form class="edit-form invisible"><input class="edit" type="text" name="edittodo" value=""></input></form></div>
         </div>
       </header>
